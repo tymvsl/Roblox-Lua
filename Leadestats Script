@@ -1,0 +1,26 @@
+-- Wait for the player to join
+game.Players.PlayerAdded:Connect(function(player)
+    -- Create a folder named "leaderstats" in the player
+    local leaderstats = Instance.new("Folder")
+    leaderstats.Name = "leaderstats"
+    leaderstats.Parent = player
+
+    -- Create an IntValue named "Points" in the "leaderstats" folder
+    local points = Instance.new("IntValue")
+    points.Name = "Points"
+    points.Value = 0
+    points.Parent = leaderstats
+
+    -- Define a function that increases the player's points
+    local function increasePoints()
+        points.Value = points.Value + 1
+    end
+
+    -- Call the function every second
+    while true do
+        increasePoints()
+        wait(1)
+    end
+end)
+
+--THIS SCRIPT CREATES A LEADERBOARD WITH VALUE COINS. IT ADDS 1 COIN EVERY SECOND.
